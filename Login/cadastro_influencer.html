@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowUp • Cadastro Influencer</title>
+  <link rel="stylesheet" href="/Login/login.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="card">
+      <div class="panel">
+        <div class="brand"><div class="dot"></div><span>FlowUp</span></div>
+        <h2>Cadastro • Influencer</h2>
+        <p class="sub">Conte mais sobre o seu perfil.</p>
+
+        <form class="form" action="#" method="post" enctype="multipart/form-data">
+          <div class="row">
+            <div>
+              <label for="ifoto">Foto de perfil</label>
+              <input id="ifoto" name="ifoto" type="file" class="input" accept="image/*">
+            </div>
+            <div>
+              <label for="inameSocial">Nome usado na rede social</label>
+              <input id="inameSocial" name="inameSocial" type="text" class="input" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="inome">Nome completo</label>
+              <input id="inome" name="inome" type="text" class="input" required>
+            </div>
+            <div>
+              <label for="icpf">CPF</label>
+              <input id="icpf" name="icpf" type="text" class="input" placeholder="000.000.000-00" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="itel">Telefone</label>
+              <input id="itel" name="itel" type="tel" class="input" placeholder="(00) 00000-0000" required>
+            </div>
+            <div>
+              <label for="iend">Endereço</label>
+              <input id="iend" name="iend" type="text" class="input" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="iinsta">Link do Instagram</label>
+              <input id="iinsta" name="iinsta" type="url" class="input" placeholder="https://instagram.com/seuperfil">
+            </div>
+            <div>
+              <label for="iseg">Tipo de seguimento</label>
+              <input id="iseg" name="iseg" type="text" class="input" placeholder="nicho / segmento">
+            </div>
+          </div>
+
+          <div>
+            <label for="idesc">Descrição do perfil</label>
+            <textarea id="idesc" name="idesc" class="input" placeholder="Resumo do seu conteúdo e público."></textarea>
+          </div>
+
+          <div>
+            <label for="iidv">Identidade visual</label>
+            <textarea id="iidv" name="iidv" class="input" placeholder="Cores, tipografia e referências."></textarea>
+          </div>
+
+          <button class="btn btn-gradient" type="submit">Criar conta (Influencer)</button>
+          <a class="btn btn-outline" href="/Login/tipo_cadastro.html">Voltar</a>
+        </form>
+      </div>
+
+      <aside class="visual">
+        <div class="visual-inner">
+          <div>
+            <h1>Influencer</h1>
+            <p>Conecte marcas, receba briefings e organize parcerias em um único painel.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

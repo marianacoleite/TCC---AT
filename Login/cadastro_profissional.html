@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowUp • Cadastro Profissional</title>
+  <link rel="stylesheet" href="/Login/login.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="card">
+      <div class="panel">
+        <div class="brand"><div class="dot"></div><span>FlowUp</span></div>
+        <h2>Cadastro • Perfil</h2>
+        <p class="sub">Preencha seus dados básicos.</p>
+
+        <form class="form" action="#" method="post" enctype="multipart/form-data">
+          <div class="row">
+            <div>
+              <label for="pfoto">Foto de perfil</label>
+              <input id="pfoto" name="pfoto" type="file" class="input" accept="image/*">
+            </div>
+            <div>
+              <label for="pnome">Nome completo</label>
+              <input id="pnome" name="pnome" type="text" class="input" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="pcpf">CPF</label>
+              <input id="pcpf" name="pcpf" type="text" class="input" placeholder="000.000.000-00" required>
+            </div>
+            <div>
+              <label for="ptel">Telefone</label>
+              <input id="ptel" name="ptel" type="tel" class="input" placeholder="(00) 00000-0000" required>
+            </div>
+          </div>
+
+          <div>
+            <label for="pend">Endereço</label>
+            <input id="pend" name="pend" type="text" class="input" required>
+          </div>
+
+          <div>
+            <label for="pfunc">Escolha sua função</label>
+            <select id="pfunc" name="pfunc" class="input" required>
+              <option value="">Selecione…</option>
+              <option>Redator</option>
+              <option>Edição de vídeo</option>
+              <option>Design</option>
+              <option>Social Media</option>
+              <option>Atendimento</option>
+              <option>Gestão</option>
+            </select>
+          </div>
+
+          <button class="btn btn-gradient" type="submit">Criar conta (Perfil)</button>
+          <a class="btn btn-outline" href="/Login/tipo_cadastro.html">Voltar</a>
+        </form>
+      </div>
+
+      <aside class="visual">
+        <div class="visual-inner">
+          <div>
+            <h1>Perfil</h1>
+            <p>Conecte-se a equipes e projetos. Você pode atualizar suas funções a qualquer momento.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

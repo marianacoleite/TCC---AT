@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+:root{
+  --g1:#6d28d9;   /* roxo */
+  --g2:#ec4899;   /* rosa */
+  --g3:#f97316;   /* laranja */
+  --bg:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --radius:28px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#fafafa 0%, #fff 100%);
+}
+
+/* container metade-metade */
+.auth-shell{
+  min-height:100%;
+  display:grid;
+  place-items:center;
+  padding:40px 20px;
+}
+.card{
+  width:min(1100px,96vw);
+  min-height:620px;
+  border-radius:var(--radius);
+  box-shadow: 0 10px 30px rgba(17,24,39,.10), 0 4px 12px rgba(17,24,39,.08);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  background:#fff;
+}
+
+/* lado visual (círculo/gradiente) */
+.visual{
+  position:relative;
+  background:
+    radial-gradient(740px 740px at 120% -20%, rgba(249,115,22,.55), transparent 50%),
+    radial-gradient(740px 740px at -20% 120%, rgba(109,40,217,.55), transparent 50%),
+    #f9fafb;
+}
+.visual:after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(closest-side, rgba(255,255,255,.2), rgba(255,255,255,0) 70%),
+    radial-gradient(closest-side, rgba(255,255,255,.12), rgba(255,255,255,0) 70%);
+  opacity:.6;
+  pointer-events:none;
+}
+.visual-inner{
+  position:relative; z-index:2;
+  height:100%; display:flex; align-items:center; justify-content:center; text-align:left;
+  padding:56px;
+}
+.visual h1{
+  font-size:56px; line-height:1.02; margin:0 0 10px;
+}
+.visual p{color:var(--muted); max-width:420px}
+
+/* lado do formulário */
+.panel{
+  padding:48px 46px;
+  display:flex; flex-direction:column; gap:18px;
+}
+.brand{
+  display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+}
+.brand .dot{
+  width:18px;height:18px;border-radius:999px;
+  background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));
+}
+.brand span{
+  background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+h2{margin:8px 0 0; font-size:28px}
+.sub{color:var(--muted); margin:0 0 8px}
+
+.form{display:grid; gap:12px; margin-top:8px; max-width:420px}
+label{font-weight:600; font-size:13px}
+.input, select, textarea{
+  width:100%; padding:12px 14px; border:1px solid var(--line);
+  border-radius:12px; background:#fff; outline:0; color:var(--text);
+}
+textarea{min-height:110px; resize:vertical}
+.row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.actions{display:flex; align-items:center; justify-content:space-between}
+.helper{font-size:13px; color:var(--muted)}
+.checkbox{display:flex; align-items:center; gap:8px; color:var(--muted); font-size:13px}
+
+.btn{
+  appearance:none; border:0; cursor:pointer; font-weight:700;
+  border-radius:14px; padding:14px 16px; width:100%;
+}
+.btn-gradient{
+  color:#fff;
+  background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));
+  box-shadow:0 8px 18px rgba(249,115,22,.25);
+}
+.btn-outline{
+  background:#fff; border:1px solid var(--line); color:var(--text);
+}
+
+.alt{display:flex; align-items:center; gap:10px; color:var(--muted); font-size:12px; max-width:420px}
+.alt::before,.alt::after{content:""; height:1px; background:var(--line); flex:1}
+
+.pills{display:grid; grid-template-columns:1fr; gap:10px; max-width:420px}
+.pills .pill{padding:14px 16px; border:1px solid var(--line); border-radius:12px; text-align:center; font-weight:700; cursor:pointer; background:#fff}
+.pill:hover{border-color:#d0d7e2}
+.pill.primary{background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3)); color:#fff; border-color:transparent}
+
+.pill,.pill:visited,.pill:hover,.pill:active {
+  text-decoration: none; /* remove sublinhado permanentemente */
+}
+
+
+.small{font-size:13px; color:var(--muted)}
+
+@media (max-width: 980px){
+  .card{grid-template-columns:1fr}
+  .visual{order:-1}
+}

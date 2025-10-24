@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowUp • Cadastro Empresa</title>
+  <link rel="stylesheet" href="/Login/login.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="card">
+      <div class="panel">
+        <div class="brand"><div class="dot"></div><span>FlowUp</span></div>
+        <h2>Cadastro • Empresa</h2>
+        <p class="sub">Dados essenciais para começar.</p>
+
+        <form class="form" action="#" method="post" enctype="multipart/form-data">
+          <div class="row">
+            <div>
+              <label for="efoto">Foto de perfil</label>
+              <input id="efoto" name="efoto" type="file" class="input" accept="image/*">
+            </div>
+            <div>
+              <label for="enameSocial">Nome usado na rede social</label>
+              <input id="enameSocial" name="enameSocial" type="text" class="input" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="erazao">Nome da empresa</label>
+              <input id="erazao" name="erazao" type="text" class="input" required>
+            </div>
+            <div>
+              <label for="ecnpj">CNPJ</label>
+              <input id="ecnpj" name="ecnpj" type="text" class="input" placeholder="00.000.000/0001-00" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="etel">Telefone</label>
+              <input id="etel" name="etel" type="tel" class="input" placeholder="(00) 00000-0000" required>
+            </div>
+            <div>
+              <label for="eend">Endereço</label>
+              <input id="eend" name="eend" type="text" class="input" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="einsta">Link do Instagram</label>
+              <input id="einsta" name="einsta" type="url" class="input" placeholder="https://instagram.com/suaempresa">
+            </div>
+            <div>
+              <label for="eseg">Tipo de seguimento</label>
+              <input id="eseg" name="eseg" type="text" class="input" placeholder="nicho / segmento">
+            </div>
+          </div>
+
+          <div>
+            <label for="edesc">Descrição do perfil</label>
+            <textarea id="edesc" name="edesc" class="input" placeholder="Sobre a empresa e público."></textarea>
+          </div>
+
+          <div>
+            <label for="eidv">Identidade visual</label>
+            <textarea id="eidv" name="eidv" class="input" placeholder="Cores, tipografia e referências."></textarea>
+          </div>
+
+          <div>
+            <label for="eteam">Pessoas para cuidar da equipe (e-mails separados por vírgula)</label>
+            <input id="eteam" name="eteam" type="text" class="input" placeholder="ana@empresa.com, joao@empresa.com">
+          </div>
+
+          <button class="btn btn-gradient" type="submit">Criar conta (Empresa)</button>
+          <a class="btn btn-outline" href="/Login/tipo_cadastro.html">Voltar</a>
+        </form>
+      </div>
+
+      <aside class="visual">
+        <div class="visual-inner">
+          <div>
+            <h1>Empresa</h1>
+            <p>Monte sua equipe, conecte redes e organize a produção de conteúdo no FlowUp.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>
