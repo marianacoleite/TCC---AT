@@ -73,10 +73,7 @@ body{
 .brand{
   display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
 }
-.brand .dot{
-  width:18px;height:18px;border-radius:999px;
-  background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));
-}
+
 .brand span{
   background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));
   -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -129,3 +126,4 @@ textarea{min-height:110px; resize:vertical}
   .card{grid-template-columns:1fr}
   .visual{order:-1}
 }
+

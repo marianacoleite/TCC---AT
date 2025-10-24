@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowUp • Painel do Profissional</title>
+  <link rel="stylesheet" href="/Menu/menu.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+          <span>FlowUp</span>
+      </div>
+
+      <nav class="nav">
+        <a href="#" class="active">
+          <div class="ico i-analytics"></div><span>Análise</span>
+        </a>
+        <a href="#">
+          <div class="ico i-planning"></div><span>Planejamento Mensal</span>
+        </a>
+        <a href="#">
+          <div class="ico i-post"></div><span>Post</span>
+        </a>
+        <a href="#">
+          <div class="ico i-calendar"></div><span>Calendário de Postagem</span>
+        </a>
+        <a href="#">
+          <div class="ico i-manage"></div><span>Gestão de Projetos</span>
+        </a>
+        <a href="/Briefing/briefing.html">
+          <div class="ico i-briefing"></div><span>Briefing</span>
+        </a>
+        <a href="#">
+          <div class="ico i-team"></div><span>Equipe</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <!-- à esquerda: avatar da empresa + seleção -->
+      <div class="company">
+        <div class="avatar" title="Logo da Empresa"></div>
+        <div class="custom-select">
+          <div class="select-selected">
+            <span>Empresa A</span>
+            <div class="select-arrow"></div>
+          </div>
+          <div class="select-items">
+            <div class="select-option" data-value="Empresa A">
+              <div class="option-avatar"></div>
+              <span>Empresa A</span>
+            </div>
+            <div class="select-option" data-value="Empresa B">
+              <div class="option-avatar"></div>
+              <span>Empresa B</span>
+            </div>
+            <div class="select-option" data-value="Empresa C">
+              <div class="option-avatar"></div>
+              <span>Empresa C</span>
+            </div>
+            <div class="select-divider"></div>
+            <div class="select-option select-new-company" data-value="new">
+              <div class="option-avatar new-company-icon"></div>
+              <span>Cadastrar empresa nova</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- à direita: avatar do profissional -->
+      <div class="user" id="user-menu-trigger">
+        <div>
+          <div class="name">Alone Souza</div>
+          <div class="role">Profissional</div>
+        </div>
+        <div class="avatar" title="Seu perfil"></div>
+        
+        <!-- Menu do usuário -->
+        <div class="user-menu" id="user-menu">
+          <div class="user-menu-header">
+            <div class="user-menu-avatar"></div>
+            <div class="user-menu-info">
+              <div class="user-menu-name">Alone Souza</div>
+              <div class="user-menu-email">alone.souza@flowup.com</div>
+            </div>
+          </div>
+          <div class="user-menu-divider"></div>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-profile"></div>
+            <span>Meu Perfil</span>
+          </a>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-messages"></div>
+            <span>Mensagens</span>
+            <span class="user-menu-badge">3</span>
+          </a>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-settings"></div>
+            <span>Configurações</span>
+          </a>
+          <div class="user-menu-divider"></div>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-logout"></div>
+            <span>Sair</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="main">
+      <!-- Análise -->
+      <section class="card analytics">
+        <h3>Análise</h3>
+        <p class="sub">Resumo de desempenho (alcance, cliques, engajamento).</p>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-value">1.2K</div>
+            <div class="stat-label">Alcance</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">347</div>
+            <div class="stat-label">Engajamento</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">4.8%</div>
+            <div class="stat-label">Taxa de Cliques</div>
+          </div>
+        </div>
+        <a class="link" href="#">Ver análise completa</a>
+      </section>
+
+      <!-- Planejamento Mensal -->
+      <section class="card planning">
+        <h3>Planejamento Mensal</h3>
+        <p class="sub">Estratégia de conteúdo para o mês atual.</p>
+        <div class="planning-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 65%"></div>
+          </div>
+          <div class="progress-text">13 de 20 posts programados</div>
+        </div>
+        <a class="link-outline link" href="#">Criar planejamento</a>
+      </section>
+
+      <!-- Post -->
+      <section class="card post">
+        <h3>Post</h3>
+        <p class="sub">Criação e agendamento de publicações.</p>
+        <div class="quick-actions">
+          <button class="action-btn">
+            <div class="action-icon i-image"></div>
+            <span>Nova Imagem</span>
+          </button>
+          <button class="action-btn">
+            <div class="action-icon i-video"></div>
+            <span>Novo Vídeo</span>
+          </button>
+          <button class="action-btn">
+            <div class="action-icon i-text"></div>
+            <span>Texto Rápido</span>
+          </button>
+        </div>
+        <a class="link" href="#">Criar post</a>
+      </section>
+
+      <!-- Calendário de Postagem -->
+      <section class="card calendar">
+        <h3>Calendário de Postagem</h3>
+        <p class="sub">Visualize e gerencie suas publicações agendadas.</p>
+        <div class="calendar-preview">
+          <div class="calendar-day today">
+            <div class="day-number">15</div>
+            <div class="day-posts">3 posts</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">16</div>
+            <div class="day-posts">2 posts</div>
+          </div>
+          <div class="calendar-day">
+            <div class="day-number">17</div>
+            <div class="day-posts">1 post</div>
+          </div>
+        </div>
+        <a class="link-outline link" href="#">Abrir calendário completo</a>
+      </section>
+
+      <!-- Gestão de Projetos -->
+      <section class="card manage">
+        <h3>Gestão de Projetos</h3>
+        <p class="sub">Acompanhe o andamento de todos os projetos.</p>
+        <div class="project-status">
+          <div class="status-item">
+            <div class="status-dot in-progress"></div>
+            <span>Campanha Verão</span>
+          </div>
+          <div class="status-item">
+            <div class="status-dot completed"></div>
+            <span>Lançamento Produto</span>
+          </div>
+          <div class="status-item">
+            <div class="status-dot pending"></div>
+            <span>Brand Awareness</span>
+          </div>
+        </div>
+        <a class="link" href="#">Ver todos os projetos</a>
+      </section>
+
+      <!-- Briefing -->
+      <section class="card brief">
+        <h3>Briefing</h3>
+        <p class="sub">Crie e gerencie briefings de conteúdo.</p>
+        <div class="briefing-stats">
+          <div class="brief-stat">
+            <div class="brief-number">5</div>
+            <div class="brief-label">Em andamento</div>
+          </div>
+          <div class="brief-stat">
+            <div class="brief-number">12</div>
+            <div class="brief-label">Concluídos</div>
+          </div>
+          <div class="brief-stat">
+            <div class="brief-number">2</div>
+            <div class="brief-label">Pendentes</div>
+          </div>
+        </div>
+        <a class="link-outline link" href="#">Criar novo briefing</a>
+      </section>
+
+      <!-- Equipe -->
+      <section class="card team">
+        <h3>Equipe</h3>
+        <p class="sub">Gerencie membros e permissões da equipe.</p>
+        <div class="team-members">
+          <div class="member">
+            <div class="member-avatar"></div>
+            <div class="member-info">
+              <div class="member-name">Maria Silva</div>
+              <div class="member-role">Social Media</div>
+            </div>
+          </div>
+          <div class="member">
+            <div class="member-avatar"></div>
+            <div class="member-info">
+              <div class="member-name">João Santos</div>
+              <div class="member-role">Designer</div>
+            </div>
+          </div>
+          <div class="member">
+            <div class="member-avatar"></div>
+            <div class="member-info">
+              <div class="member-name">Ana Costa</div>
+              <div class="member-role">Copywriter</div>
+            </div>
+          </div>
+        </div>
+        <a class="link" href="#">Gerenciar equipe</a>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal para cadastrar nova empresa -->
+  <div class="modal" id="newCompanyModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Cadastrar Nova Empresa</h3>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="newCompanyForm">
+          <div class="form-group">
+            <label for="companyName">Nome da Empresa</label>
+            <input type="text" id="companyName" name="companyName" required placeholder="Digite o nome da empresa">
+          </div>
+          <div class="form-group">
+            <label for="companyEmail">E-mail</label>
+            <input type="email" id="companyEmail" name="companyEmail" required placeholder="email@empresa.com">
+          </div>
+          <div class="form-group">
+            <label for="companyIndustry">Segmento</label>
+            <select id="companyIndustry" name="companyIndustry" required>
+              <option value="">Selecione o segmento</option>
+              <option value="tecnologia">Tecnologia</option>
+              <option value="varejo">Varejo</option>
+              <option value="servicos">Serviços</option>
+              <option value="educacao">Educação</option>
+              <option value="saude">Saúde</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="companyLogo">Logo da Empresa (opcional)</label>
+            <div class="file-upload">
+              <input type="file" id="companyLogo" name="companyLogo" accept="image/*">
+              <label for="companyLogo" class="file-upload-label">
+                <div class="file-upload-icon"></div>
+                <span>Escolher arquivo</span>
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="cancelBtn">Cancelar</button>
+        <button type="button" class="btn-primary" id="saveCompanyBtn">Cadastrar Empresa</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/Menu/menu.js"></script>
+</body>
+</html>
