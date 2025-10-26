@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowUp • Planejamento Mensal</title>
+  <link rel="stylesheet" href="/Menu/menu.css">
+  <link rel="stylesheet" href="/Planejamento/planejamento.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Menu -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span>FlowUp</span>
+      </div>
+
+      <nav class="nav">
+        <a href="/Menu/menu.html">
+          <div class="ico i-analytics"></div>
+          <span>Mapa Geral</span>
+        </a>
+        <a href="/Planejamento/planejamento.html" class="active">
+          <div class="ico i-planning"></div>
+          <span>Planejamento Mensal</span>
+        </a>
+        <a href="#">
+          <div class="ico i-post"></div>
+          <span>Agendamento de Postagem</span>
+        </a>
+        <a href="#">
+          <div class="ico i-calendar"></div>
+          <span>Calendário de Postagem</span>
+        </a>
+        <a href="#">
+          <div class="ico i-manage"></div>
+          <span>Gestão de Projetos</span>
+        </a>
+        <a href="/Briefing/briefing.html">
+          <div class="ico i-briefing"></div>
+          <span>Briefing</span>
+        </a>
+        <a href="#">
+          <div class="ico i-team"></div>
+          <span>Equipe</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="company">
+        <div class="avatar" title="Logo da Empresa"></div>
+        <div class="custom-select">
+          <div class="select-selected">
+            <span>Empresa A</span>
+            <div class="select-arrow"></div>
+          </div>
+          <div class="select-items">
+            <div class="select-option" data-value="Empresa A">
+              <div class="option-avatar"></div>
+              <span>Empresa A</span>
+            </div>
+            <div class="select-option" data-value="Empresa B">
+              <div class="option-avatar"></div>
+              <span>Empresa B</span>
+            </div>
+            <div class="select-divider"></div>
+            <div class="select-option select-new-company" data-value="new">
+              <div class="option-avatar new-company-icon"></div>
+              <span>Cadastrar empresa nova</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu do usuário -->
+      <div class="user" id="user-menu-trigger">
+        <div>
+          <div class="name">Alone Souza</div>
+          <div class="role">Profissional</div>
+        </div>
+        <div class="avatar" title="Seu perfil"></div>
+        
+        <div class="user-menu" id="user-menu">
+          <div class="user-menu-header">
+            <div class="user-menu-avatar"></div>
+            <div class="user-menu-info">
+              <div class="user-menu-name">Alone Souza</div>
+              <div class="user-menu-email">alone.souza@flowup.com</div>
+            </div>
+          </div>
+          <div class="user-menu-divider"></div>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-profile"></div>
+            <span>Meu Perfil</span>
+          </a>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-messages"></div>
+            <span>Mensagens</span>
+            <span class="user-menu-badge">3</span>
+          </a>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-settings"></div>
+            <span>Configurações</span>
+          </a>
+          <div class="user-menu-divider"></div>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-logout"></div>
+            <span>Sair</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main planejamento-main">
+      <div class="planejamento-container">
+        <!-- Cabeçalho -->
+        <div class="planejamento-header">
+          <div>
+            <h1>Planejamento Mensal</h1>
+            <p class="sub">Organize e programe suas publicações do mês</p>
+          </div>
+          <button class="btn-primary" id="novoPlanejamentoBtn">
+            <span class="btn-icon">+</span> Novo Planejamento
+          </button>
+        </div>
+
+        <div class="planejamento-layout">
+          <!-- Lista de Planejamentos (Esquerda) -->
+          <div class="planejamento-list-section">
+            <div class="section-header">
+              <h3>Meus Planejamentos</h3>
+              <div class="search-box">
+                <input type="text" id="searchPlanejamento" placeholder="Buscar planejamento...">
+                <div class="search-icon"></div>
+              </div>
+            </div>
+
+            <div class="filters">
+              <select class="filter-select" id="monthFilter">
+                <option value="all">Todos os Meses</option>
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4">Abril</option>
+                <option value="5">Maio</option>
+                <option value="6">Junho</option>
+                <option value="7">Julho</option>
+                <option value="8">Agosto</option>
+                <option value="9">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+                <option value="special">Planejamento Especial</option>
+              </select>
+              
+              <select class="filter-select" id="yearFilter">
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+              </select>
+            </div>
+
+            <div class="planejamento-list" id="planejamentoList">
+              <!-- Planejamentos serão carregados via JavaScript -->
+            </div>
+          </div>
+
+          <!-- Visualização/Edição (Direita) -->
+          <div class="planejamento-detail-section">
+            <div class="detail-placeholder" id="detailPlaceholder">
+              <div class="placeholder-content">
+                <div class="placeholder-icon">📅</div>
+                <h3>Selecione um planejamento</h3>
+                <p>Escolha um planejamento da lista ao lado para visualizar ou editar</p>
+              </div>
+            </div>
+
+            <div class="planejamento-detail" id="planejamentoDetail">
+              <!-- Conteúdo do planejamento será carregado aqui -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal de Novo/Editar Planejamento -->
+  <div class="modal" id="planejamentoModal">
+    <div class="modal-content large-modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Novo Planejamento</h3>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="planejamentoForm">
+          <!-- Informações Básicas -->
+          <div class="form-section">
+            <h4 class="section-title">
+              <span class="section-emoji">📅</span> Informações do Planejamento
+            </h4>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="planejamentoTipo">Tipo de Planejamento *</label>
+                <select id="planejamentoTipo" name="tipo" required>
+                  <option value="">Selecione o tipo</option>
+                  <option value="mensal">Planejamento Mensal</option>
+                  <option value="especial">Planejamento Especial</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="mesGroup">
+                <label for="planejamentoMes">Mês *</label>
+                <select id="planejamentoMes" name="mes">
+                  <option value="">Selecione o mês</option>
+                  <option value="1">Janeiro</option>
+                  <option value="2">Fevereiro</option>
+                  <option value="3">Março</option>
+                  <option value="4">Abril</option>
+                  <option value="5">Maio</option>
+                  <option value="6">Junho</option>
+                  <option value="7">Julho</option>
+                  <option value="8">Agosto</option>
+                  <option value="9">Setembro</option>
+                  <option value="10">Outubro</option>
+                  <option value="11">Novembro</option>
+                  <option value="12">Dezembro</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="planejamentoAno">Ano *</label>
+                <select id="planejamentoAno" name="ano" required>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="planejamentoTitulo">Título do Planejamento *</label>
+              <input type="text" id="planejamentoTitulo" name="titulo" required placeholder="Ex: Campanha Verão 2024">
+            </div>
+
+            <div class="form-group">
+              <label for="planejamentoDescricao">Descrição</label>
+              <textarea id="planejamentoDescricao" name="descricao" placeholder="Descreva o objetivo deste planejamento..." rows="3"></textarea>
+            </div>
+          </div>
+
+          <!-- Posts/Publicações -->
+          <div class="form-section">
+            <h4 class="section-title">
+              <span class="section-emoji">📱</span> Publicações Programadas
+            </h4>
+            
+            <div class="posts-container" id="postsContainer">
+              <!-- Posts serão adicionados dinamicamente -->
+            </div>
+
+            <button type="button" class="btn-secondary btn-add-post" id="addPostBtn">
+              <span class="btn-icon">+</span> Adicionar Publicação
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="cancelBtn">Cancelar</button>
+        <button type="button" class="btn-primary" id="savePlanejamentoBtn">Salvar Planejamento</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template de Post (usado no JavaScript) -->
+  <template id="postTemplate">
+    <div class="post-item">
+      <div class="post-header">
+        <h5>Publicação <span class="post-number">1</span></h5>
+        <button type="button" class="btn-remove-post">&times;</button>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Tipo de Conteúdo *</label>
+          <select name="postTipo" required>
+            <option value="">Selecione</option>
+            <option value="reels">Reels</option>
+            <option value="video">Vídeo</option>
+            <option value="carrossel">Carrossel</option>
+            <option value="storys">Storys</option>
+            <option value="foto">Foto</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Prioridade</label>
+          <select name="postPrioridade">
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Data de Postagem *</label>
+          <input type="date" name="postData" required>
+        </div>
+
+        <div class="form-group">
+          <label>Responsável *</label>
+          <select name="postResponsavel" required>
+            <option value="">Selecione</option>
+            <option value="design">Design</option>
+            <option value="gravacao">Gravação</option>
+            <option value="redacao">Redação</option>
+            <option value="social">Social Media</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Descrição da Publicação *</label>
+        <textarea name="postDescricao" required placeholder="Descreva o conteúdo desta publicação..." rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Texto da Legenda</label>
+        <textarea name="postLegenda" placeholder="Texto que acompanhará a publicação..." rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Inspirações (Links, imagens, vídeos)</label>
+        <textarea name="postInspiracao" placeholder="Cole links de referência, inspirações ou observações..." rows="2"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Destino da Tarefa</label>
+        <select name="postDestino">
+          <option value="">Selecione o destino</option>
+          <option value="design">Design</option>
+          <option value="gravacao">Gravação</option>
+          <option value="edicao">Edição</option>
+          <option value="revisao">Revisão</option>
+          <option value="publicacao">Publicação</option>
+        </select>
+      </div>
+    </div>
+  </template>
+
+  <!-- Modal de Confirmação -->
+  <div class="modal" id="confirmModal">
+    <div class="modal-content small-modal">
+      <div class="modal-header">
+        <h3>Confirmar Exclusão</h3>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja excluir este planejamento? Esta ação não pode ser desfeita.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="cancelDeleteBtn">Cancelar</button>
+        <button type="button" class="btn-danger" id="confirmDeleteBtn">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/Menu/menu.js"></script>
+  <script src="/Planejamento/planejamento.js"></script>
+</body>
+</html>
