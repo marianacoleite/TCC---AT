@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowUp • Briefing</title>
+  <link rel="stylesheet" href="/Menu/menu.css">
+  <link rel="stylesheet" href="/Briefing/brienfing.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Menu -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span>FlowUp</span>
+      </div>
+
+      <nav class="nav">
+        <a href="/Menu/menu.html">
+          <div class="ico i-analytics"></div>
+          <span>Mapa Geral</span>
+        </a>
+        <a href="/Planejamento/planejamento.html">
+          <div class="ico i-planning"></div>
+          <span>Planejamento Mensal</span>
+        </a>
+        <a href="#">
+          <div class="ico i-post"></div>
+          <span>Agendamento de Postagem</span>
+        </a>
+        <a href="#">
+          <div class="ico i-calendar"></div>
+          <span>Calendário de Postagem</span>
+        </a>
+        <a href="#">
+          <div class="ico i-manage"></div>
+          <span>Gestão de Projetos</span>
+        </a>
+        <a href="/Briefing/briefing.html" class="active">
+          <div class="ico i-briefing"></div>
+          <span>Briefing</span>
+        </a>
+        <a href="#">
+          <div class="ico i-team"></div>
+          <span>Equipe</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="company">
+        <div class="avatar" title="Logo da Empresa"></div>
+        <div class="custom-select">
+          <div class="select-selected">
+            <span>Empresa A</span>
+            <div class="select-arrow"></div>
+          </div>
+          <div class="select-items">
+            <div class="select-option" data-value="Empresa A">
+              <div class="option-avatar"></div>
+              <span>Empresa A</span>
+            </div>
+            <div class="select-option" data-value="Empresa B">
+              <div class="option-avatar"></div>
+              <span>Empresa B</span>
+            </div>
+            <div class="select-divider"></div>
+            <div class="select-option select-new-company" data-value="new">
+              <div class="option-avatar new-company-icon"></div>
+              <span>Cadastrar empresa nova</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu do usuário completo -->
+      <div class="user" id="user-menu-trigger">
+        <div>
+          <div class="name">Alone Souza</div>
+          <div class="role">Profissional</div>
+        </div>
+        <div class="avatar" title="Seu perfil"></div>
+        
+        <!-- Menu do usuário -->
+        <div class="user-menu" id="user-menu">
+          <div class="user-menu-header">
+            <div class="user-menu-avatar"></div>
+            <div class="user-menu-info">
+              <div class="user-menu-name">Alone Souza</div>
+              <div class="user-menu-email">alone.souza@flowup.com</div>
+            </div>
+          </div>
+          <div class="user-menu-divider"></div>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-profile"></div>
+            <span>Meu Perfil</span>
+          </a>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-messages"></div>
+            <span>Mensagens</span>
+            <span class="user-menu-badge">3</span>
+          </a>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-settings"></div>
+            <span>Configurações</span>
+          </a>
+          <div class="user-menu-divider"></div>
+          <a href="#" class="user-menu-item">
+            <div class="user-menu-icon i-logout"></div>
+            <span>Sair</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main briefing-main">
+      <div class="briefing-container">
+        <!-- Cabeçalho -->
+        <div class="briefing-header">
+          <div>
+            <h1>Briefing</h1>
+            <p class="sub">Crie e gerencie briefings de conteúdo</p>
+          </div>
+          <button class="btn-primary" id="newBriefingBtn">
+            <span class="btn-icon">+</span> Novo Briefing
+          </button>
+        </div>
+
+        <div class="briefing-layout">
+          <!-- Lista de Briefings (Esquerda) -->
+          <div class="briefing-list-section">
+            <div class="section-header">
+              <h3>Meus Briefings</h3>
+              <div class="search-box">
+                <input type="text" id="searchBriefing" placeholder="Buscar briefing...">
+                <div class="search-icon"></div>
+              </div>
+            </div>
+
+            <div class="filters">
+              <select class="filter-select" id="statusFilter">
+                <option value="all">Todos os Status</option>
+                <option value="draft">Rascunho</option>
+                <option value="in-progress">Em Andamento</option>
+                <option value="completed">Concluído</option>
+              </select>
+            </div>
+
+            <div class="briefing-list" id="briefingList">
+              <!-- Briefings serão carregados via JavaScript -->
+            </div>
+          </div>
+
+          <!-- Visualização/Edição (Direita) -->
+          <div class="briefing-detail-section">
+            <div class="detail-placeholder" id="detailPlaceholder">
+              <div class="placeholder-content">
+                <div class="placeholder-icon">📋</div>
+                <h3>Selecione um briefing</h3>
+                <p>Escolha um briefing da lista ao lado para visualizar ou editar</p>
+              </div>
+            </div>
+
+            <div class="briefing-detail" id="briefingDetail">
+              <!-- Conteúdo do briefing será carregado aqui -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal de Novo/Editar Briefing -->
+  <div class="modal" id="briefingModal">
+    <div class="modal-content large-modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Novo Briefing</h3>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="briefingForm">
+          <!-- Seção 1: Sobre o Projeto -->
+          <div class="form-section">
+            <h4 class="section-title">
+              <span class="section-emoji">📋</span> Sobre o Projeto
+            </h4>
+            
+            <div class="form-group">
+              <label for="briefingTitle">Título do Projeto *</label>
+              <input type="text" id="briefingTitle" name="title" required placeholder="Ex: Campanha Dias das Crianças">
+            </div>
+
+            <div class="form-group">
+              <label for="briefingDescription">Descrição do Projeto *</label>
+              <textarea id="briefingDescription" name="description" required placeholder="Descreva claramente o projeto..." rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="briefingObjectives">Objetivos e Prioridades *</label>
+              <textarea id="briefingObjectives" name="objectives" required placeholder="Quais são os principais objetivos e prioridades deste projeto?" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="briefingCta">Chamada para Ação (Call to Action) *</label>
+              <input type="text" id="briefingCta" name="cta" required placeholder="Ex: Compre agora, Saiba mais, etc.">
+            </div>
+          </div>
+
+          <!-- Seção 2: Sobre o Mercado e Público -->
+          <div class="form-section">
+            <h4 class="section-title">
+              <span class="section-emoji">🎯</span> Sobre o Mercado e Público
+            </h4>
+
+            <div class="form-group">
+              <label for="briefingTarget">Público-Alvo *</label>
+              <textarea id="briefingTarget" name="target" required placeholder="Quem é seu público-alvo e o que você quer que ele faça?" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="briefingCompetition">Análise da Concorrência</label>
+              <textarea id="briefingCompetition" name="competition" placeholder="Quem são seus principais concorrentes e o que eles fazem?" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="briefingMarket">Análise de Mercado</label>
+              <textarea id="briefingMarket" name="market" placeholder="Tendências, oportunidades e análise do mercado..." rows="3"></textarea>
+            </div>
+          </div>
+
+          <!-- Seção 3: Sobre a Comunicação -->
+          <div class="form-section">
+            <h4 class="section-title">
+              <span class="section-emoji">💬</span> Sobre a Comunicação
+            </h4>
+
+            <div class="form-group">
+              <label for="briefingMessages">Principais Mensagens *</label>
+              <textarea id="briefingMessages" name="messages" required placeholder="Quais são as principais mensagens a serem comunicadas?" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="briefingTone">Tom de Voz da Marca *</label>
+              <select id="briefingTone" name="tone" required>
+                <option value="">Selecione o tom de voz</option>
+                <option value="formal">Formal</option>
+                <option value="informal">Informal</option>
+                <option value="amigavel">Amigável</option>
+                <option value="profissional">Profissional</option>
+                <option value="descontraido">Descontraído</option>
+                <option value="inspirador">Inspirador</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="briefingChannels">Canais de Distribuição *</label>
+              <div class="channels-grid">
+                <label class="channel-checkbox">
+                  <input type="checkbox" name="channels" value="instagram">
+                  <span>Instagram</span>
+                </label>
+                <label class="channel-checkbox">
+                  <input type="checkbox" name="channels" value="facebook">
+                  <span>Facebook</span>
+                </label>
+                <label class="channel-checkbox">
+                  <input type="checkbox" name="channels" value="twitter">
+                  <span>Twitter</span>
+                </label>
+                <label class="channel-checkbox">
+                  <input type="checkbox" name="channels" value="linkedin">
+                  <span>LinkedIn</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seção 4: Sobre a Execução -->
+          <div class="form-section">
+            <h4 class="section-title">
+              <span class="section-emoji">⚡</span> Sobre a Execução
+            </h4>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="briefingBudget">Orçamento (R$)</label>
+                <input type="number" id="briefingBudget" name="budget" placeholder="0,00" step="0.01" min="0">
+              </div>
+
+              <div class="form-group">
+                <label for="briefingStatus">Status</label>
+                <select id="briefingStatus" name="status">
+                  <option value="draft">Rascunho</option>
+                  <option value="in-progress">Em Andamento</option>
+                  <option value="completed">Concluído</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="briefingTimeline">Cronograma</label>
+              <textarea id="briefingTimeline" name="timeline" placeholder="Descreva o cronograma do projeto..." rows="3"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="briefingStartDate">Data de Início</label>
+                <input type="date" id="briefingStartDate" name="startDate">
+              </div>
+
+              <div class="form-group">
+                <label for="briefingEndDate">Data de Término</label>
+                <input type="date" id="briefingEndDate" name="endDate">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="cancelBtn">Cancelar</button>
+        <button type="button" class="btn-primary" id="saveBriefingBtn">Salvar Briefing</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Confirmação -->
+  <div class="modal" id="confirmModal">
+    <div class="modal-content small-modal">
+      <div class="modal-header">
+        <h3>Confirmar Exclusão</h3>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja excluir este briefing? Esta ação não pode ser desfeita.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="cancelDeleteBtn">Cancelar</button>
+        <button type="button" class="btn-danger" id="confirmDeleteBtn">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/Menu/menu.js"></script>
+  <script src="/Briefing/briefing.js"></script>
+</body>
+</html>

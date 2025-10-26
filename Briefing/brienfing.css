@@ -1,0 +1,536 @@
+/* Layout Principal do Briefing */
+.briefing-main {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: 'briefing' !important;
+    padding: 20px !important;
+}
+
+.briefing-container {
+    padding: 0;
+}
+
+.briefing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.briefing-header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--g1), var(--g2), var(--g3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.briefing-header .sub {
+    color: var(--muted);
+    margin: 0;
+    font-size: 16px;
+}
+
+#newBriefingBtn {
+    background: linear-gradient(90deg, var(--g1), var(--g2));
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+#newBriefingBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(109, 40, 217, 0.3);
+}
+
+.btn-icon {
+    font-size: 18px;
+}
+
+/* Layout de duas colunas */
+.briefing-layout {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 30px;
+    height: calc(100vh - 200px);
+}
+
+/* Lista de Briefings */
+.briefing-list-section {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.search-box {
+    position: relative;
+    width: 200px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 35px 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 14px;
+    background: #f8fafc;
+    transition: all 0.2s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--g1);
+    background: white;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: var(--muted);
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M11 2a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm8.5 2.5-3-3'/></svg>") no-repeat center/16px 16px;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M11 2a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm8.5 2.5-3-3'/></svg>") no-repeat center/16px 16px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-select {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #f8fafc;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--g1);
+    background: white;
+}
+
+/* Itens da Lista */
+.briefing-item {
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.briefing-item:hover {
+    border-color: var(--g1);
+    background: #f8fafc;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.briefing-item.active {
+    border-color: var(--g1);
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.05), rgba(236, 72, 153, 0.05));
+}
+
+.briefing-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.briefing-item-title {
+    margin: 0;
+    font-size: 16px;
+    color: var(--text);
+    flex: 1;
+    font-weight: 600;
+}
+
+.briefing-status {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.briefing-status.draft {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.briefing-status.in-progress {
+    background: #cce7ff;
+    color: #004085;
+}
+
+.briefing-status.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.briefing-item-description {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.briefing-item-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.briefing-channels {
+    display: flex;
+    gap: 4px;
+}
+
+.channel-tag {
+    background: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    font-size: 11px;
+}
+
+/* Estado vazio */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.empty-state h4 {
+    margin: 0 0 8px;
+    color: var(--text);
+    font-size: 16px;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Detalhes do Briefing */
+.briefing-detail-section {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow-y: auto;
+}
+
+.detail-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--muted);
+}
+
+.placeholder-content {
+    text-align: center;
+    max-width: 300px;
+}
+
+.placeholder-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.placeholder-content h3 {
+    margin: 0 0 12px;
+    color: var(--text);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.placeholder-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.briefing-detail {
+    padding: 30px;
+    display: none;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.detail-title-section {
+    flex: 1;
+}
+
+.detail-title-section h2 {
+    margin: 0 0 12px;
+    color: var(--text);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.detail-section {
+    background: #f8fafc;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+}
+
+.detail-section h3 {
+    margin: 0 0 20px;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-item label {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-item p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.cta-highlight {
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.1), rgba(236, 72, 153, 0.1));
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid var(--g1);
+    font-weight: 600;
+    color: var(--text);
+}
+
+.channels-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.channel-badge {
+    background: linear-gradient(90deg, var(--g1), var(--g2));
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Modais Específicos do Briefing */
+.large-modal {
+    max-width: 800px;
+}
+
+.small-modal {
+    max-width: 500px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.section-title {
+    margin: 0 0 20px;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-emoji {
+    font-size: 18px;
+}
+
+.channels-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.channel-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.channel-checkbox:hover {
+    background: #f8fafc;
+    border-color: var(--g1);
+}
+
+.channel-checkbox input[type="checkbox"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Botão de perigo */
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+}
+
+/* Responsivo */
+@media (max-width: 1100px) {
+    .briefing-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .briefing-list-section {
+        max-height: 400px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .channels-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .briefing-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .detail-actions {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+}
